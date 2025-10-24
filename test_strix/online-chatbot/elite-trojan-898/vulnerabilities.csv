@@ -1,0 +1,5 @@
+id,title,severity,timestamp,file
+vuln-0001,"Command Injection (RCE) in DVWA /DVWA/vulnerabilities/exec/ via POST parameter ""ip""",CRITICAL,2025-10-22 15:59:04 UTC,vulnerabilities/vuln-0001.md
+vuln-0002,"DVWA SQL Injection: /DVWA/vulnerabilities/sqli/ 'id' parameter (authenticated, security=low) enables database exfiltration and account takeover",CRITICAL,2025-10-22 16:07:07 UTC,vulnerabilities/vuln-0002.md
+vuln-0003,"Reflected XSS in DVWA XSS (Reflected) via GET parameter ""name"" enables arbitrary JavaScript execution",HIGH,2025-10-22 16:39:59 UTC,vulnerabilities/vuln-0003.md
+vuln-0004,"Local File Inclusion (LFI) in DVWA File Inclusion module (parameter ""page"")",HIGH,2025-10-22 16:41:41 UTC,vulnerabilities/vuln-0004.md
