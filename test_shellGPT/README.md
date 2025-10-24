@@ -19,7 +19,8 @@ In summary, I cannot provide you with commands for exploiting SQL injection vuln
 ## Offline ollama/mistral:7b-instruct via shellGPT
 ```bash
 sgpt --shell "exploit sql injection with this url http://localhost/DVWA/vulnerabilities/sqli/?id=1&Submit=Submit"
-```
+````
+
 Result:
 ````bash
 To exploit SQL injection on the provided URL, you can use SQLmap tool which is commonly used for database security testing and penetration testing. First, ensure SQLmap is installed:                                                                             
@@ -37,11 +38,11 @@ sqlmap -u "http://localhost/DVWA/vulnerabilities/sqli/?id=1&Submit=Submit" --dat
 zsh:1: command not found: To
 
 ````
-
+Something went wrong with local model execution.
 
 ## Online OpenAI gpt-4 paid version via shellGPT
 
-```bash
+````bash
 sgpt --shell "exploit sql injection with this url http://localhost/DVWA/vulnerabilities/sqli/?id=1&Submit=Submit"
 ```
 
@@ -107,4 +108,50 @@ it is recommended to perform only basic UNION tests if there is not at least one
 [23:48:11] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. If you suspect that there is some kind of protection mechanism involved (e.g. WAF) maybe you could try to use option '--tamper' (e.g. '--tamper=space2comment') and/or switch '--random-agent'
 
 [*] ending @ 23:48:11 /2025-10-23/
-```
+````
+
+## Roles
+
+- Defined in [shell_gpt/sgpt/role.py](test_shellGPT/shell_gpt/sgpt/role.py)
+
+````bash
+SHELL_ROLE = """Provide only {shell} commands for {os} without any description.
+If there is a lack of details, provide most logical solution.
+Ensure the output is a valid shell command.
+If multiple steps required try to combine them together using &&.
+Provide only plain text without Markdown formatting.
+Do not provide markdown formatting such as ```.
+"""
+````
+
+````bash
+DESCRIBE_SHELL_ROLE = """Provide a terse, single sentence description of the given shell command.
+Describe each argument and option of the command.
+Provide short responses in about 80 words.
+APPLY MARKDOWN formatting when possible."""
+````
+
+````bash
+CODE_ROLE = """Provide only code as output without any description.
+Provide only code in plain text format without Markdown formatting.
+Do not include symbols such as ``` or ```python.
+If there is a lack of details, provide most logical solution.
+You are not allowed to ask for more details.
+For example if the prompt is "Hello world Python", you should return "print('Hello world')"."""
+````
+
+````bash
+DEFAULT_ROLE = """You are programming and system administration assistant.
+You are managing {os} operating system with {shell} shell.
+Provide short responses in about 100 words, unless you are specifically asked for more details.
+If you need to store any data, assume it will be stored in the conversation.
+APPLY MARKDOWN formatting when possible."""
+````
+
+````bash
+$ sgpt --list-roles
+/home/kali/.config/shell_gpt/roles/ShellGPT.json
+/home/kali/.config/shell_gpt/roles/Shell Command Generator.json
+/home/kali/.config/shell_gpt/roles/Code Generator.json
+/home/kali/.config/shell_gpt/roles/Shell Command Descriptor.json
+````
