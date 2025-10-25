@@ -4,6 +4,7 @@
 ### 1. Redteam with LLM
 - [Red teaming ChatGPT via Jailbreaking: Bias, Robustness, Reliability and Toxicity](https://arxiv.org/pdf/2301.12867)
 - [Generative AI for pentesting: the good, the bad, the ugly](https://link.springer.com/article/10.1007/s10207-024-00835-x)
+- [Forewarned is Forearmed: A Survey on Large Language Model-based Agents in Autonomous Cyberattacks](https://arxiv.org/html/2505.12786v1)
 
 ### 2. shellGPT experiments
 - [shellGPT](test_shellGPT/README.md)
